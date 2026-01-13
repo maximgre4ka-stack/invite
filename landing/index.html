@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Максим & Яна — 24.04.2026</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- HERO WRAPPER -->
+<div class="hero-wrap">
+
+  <header class="hero" id="top">
+
+    <!-- desktop layers -->
+    <div class="hero__bg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__grain"></div>
+
+    <!-- mobile photo -->
+    <div class="hero__photo"></div>
+
+    <div class="hero__content hero__content--contrast">
+      <p class="kicker"></p>
+
+      <h1 class="names">Максим &amp; Яна</h1>
+
+      <p class="date">24 апреля 2026 • Сочи</p>
+      <div class="hero-progress" role="progressbar" aria-label="До свадьбы" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span class="hero-progress__bar" id="heroProgressBar"></span>
+      </div>
+
+      <p class="countdown-title">До нашей свадьбы осталось:</p>
+
+      <div class="countdown">
+        <div class="tile"><div class="num" id="d">—</div><div class="lbl">дней</div></div>
+        <div class="tile"><div class="num" id="h">—</div><div class="lbl">часов</div></div>
+        <div class="tile"><div class="num" id="m">—</div><div class="lbl">минут</div></div>
+        <div class="tile"><div class="num" id="s">—</div><div class="lbl">секунд</div></div>
+      </div>
+
+      <button class="btn" id="to-rsvp">Подтвердить присутствие</button>
+    </div>
+
+  </header>
+
+</div>
+
+<main>
+  <div class="decor-palms" aria-hidden="true">
+    <span class="palm p1"></span>
+    <span class="palm p2"></span>
+    <span class="palm p3"></span>
+    <span class="palm p4"></span>
+    <span class="palm p5"></span>
+    <span class="palm p6"></span>
+  </div>
+<!-- ПРИГЛАШЕНИЕ -->
+<section class="section" id="invite">
+  <div class="container">
+    <h2>Приглашение</h2>
+    <p class="lead">Дорогие, любимые, родные и близкие!</p>
+    <p>
+      Мы будем счастливы разделить с Вами наш свадебный день
+      в тёплой и уютной атмосфере южного города.
+    </p>
+  </div>
+</section>
+
+<!-- ДАТА И МЕСТО -->
+<section class="section" id="details">
+  <div class="container cards">
+    <div class="card card--clickable" id="calendarCard" role="button" tabindex="0" aria-label="Добавить в календарь">
+      <h3>Когда</h3>
+      <p><strong>24 апреля 2026</strong></p>
+      <span class="card-icon" aria-hidden="true">📅</span>
+    </div>
+    <div class="card card--clickable card--expandable" id="locationCard" role="button" tabindex="0" aria-expanded="false" aria-controls="locationMap">
+      <h3>Где</h3>
+      <p><strong>г. Сочи ул. Ленина д. 6А</strong></p>
+      <p><strong>ЗАГС Адлерского района</strong></p>
+      <span class="card-icon" aria-hidden="true">🗺️</span>
+      <div class="card__map" id="locationMap" aria-hidden="true">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?ll=39.922320%2C43.427754&mode=search&oid=1026022099&ol=biz&sctx=ZAAAAAgBEAAaKAoSCZ5eKcsQz0JAEdOgaB7A4EtAEhIJt%2B171F%2Bv%2FT8RIv32deAc6D8iBgABAgMEBSgKOABAqaIBSAFqAnJ1nQHNzMw9oAEAqAEAvQFXhc8OwgEF07Wf6QOCAhPQt9Cw0LPRgSDQsNC00LvQtdGAigIAkgIFMjA3NzeaAgxkZXNrdG9wLW1hcHM%3D&sll=39.922320%2C43.427754&sspn=0.003005%2C0.001577&text=%D0%B7%D0%B0%D0%B3%D1%81%20%D0%B0%D0%B4%D0%BB%D0%B5%D1%80&z=19.27"
+          width="100%"
+          height="360"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПЛАН МЕРОПРИЯТИЯ -->
+<section class="section" id="eventPlan">
+  <div class="container">
+    <h2>План мероприятия</h2>
+    <div class="event-plan-grid">
+      <div class="event-plan-item">
+        <h3>Сбор гостей в ЗАГСе</h3>
+        <span class="event-time">14:15</span>
+      </div>
+      <div class="event-plan-item">
+        <h3>Трансфер</h3>
+        <span class="event-time">14:15</span>
+      </div>
+      <div class="event-plan-item">
+        <h3>Сбор гостей в ресторане</h3>
+        <span class="event-time">14:15</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ДРЕСС-КОД -->
+<section class="section" id="dresscode">
+  <div class="container">
+    <h2>Дресс-код</h2>
+    <p class="lead">Главное — ваш комфорт 🌿</p>
+    <p>
+      Предпочтительны мягкие пастельные оттенки.
+      Пожалуйста, по возможности, избегайте <strong>чёрного</strong> цвета.
+    </p>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="section" id="rsvp">
+  <div class="container">
+    <h2>Подтверждение присутствия</h2>
+    <p class="muted">Пожалуйста, подтвердите своё присутствие 💌</p>
+
+    <div class="rsvp-timer">
+      <p class="rsvp-timer-title">Регистрация закроется через:</p>
+      <div class="rsvp-countdown">
+        <div class="rsvp-tile"><div class="rsvp-num" id="rsvp-d">—</div><div class="rsvp-lbl">дней</div></div>
+        <div class="rsvp-tile"><div class="rsvp-num" id="rsvp-h">—</div><div class="rsvp-lbl">часов</div></div>
+        <div class="rsvp-tile"><div class="rsvp-num" id="rsvp-m">—</div><div class="rsvp-lbl">минут</div></div>
+        <div class="rsvp-tile"><div class="rsvp-num" id="rsvp-s">—</div><div class="rsvp-lbl">секунд</div></div>
+      </div>
+    </div>
+
+    <form id="rsvpForm" class="rsvp-form">
+      <label class="field">
+        <span class="label">Имя</span>
+        <input class="input" name="name" type="text" required placeholder="Например: Анна" />
+      </label>
+
+      <fieldset class="fieldset">
+        <legend class="legend">Вы сможете прийти?</legend>
+        <label class="check"><input type="radio" name="attendance" value="Приду" required> <span>Приду</span></label>
+        <label class="check"><input type="radio" name="attendance" value="Приду + 1" required> <span>Приду + 1</span></label>
+        <label class="check"><input type="radio" name="attendance" value="Не приду" required> <span>Не приду</span></label>
+      </fieldset>
+
+<fieldset class="fieldset">
+  <legend class="legend">Предпочтения по напиткам</legend>
+
+  <label class="check">
+    <input type="checkbox" name="alcohol" value="Шампанское">
+    <span>Шампанское</span>
+  </label>
+
+  <label class="check">
+    <input type="checkbox" name="alcohol" value="Вино белое">
+    <span>Вино белое</span>
+  </label>
+
+  <label class="check">
+    <input type="checkbox" name="alcohol" value="Вино красное">
+    <span>Вино красное</span>
+  </label>
+
+  <label class="check">
+    <input type="checkbox" name="alcohol" value="Водка">
+    <span>Водка</span>
+  </label>
+
+  <label class="check">
+    <input type="checkbox" name="alcohol" value="Коньяк">
+    <span>Коньяк</span>
+  </label>
+
+  <!-- ДРУГОЕ -->
+  <label class="check">
+    <input type="checkbox" id="alcoholOtherCheck">
+    <span>Другое</span>
+  </label>
+
+  <input
+    type="text"
+    id="alcoholOtherInput"
+    class="input input--inline"
+    placeholder="Укажите напиток"
+    aria-label="Другой алкоголь"
+  />
+</fieldset>
+
+
+      <button class="btn" id="rsvpSubmitBtn" type="submit">Отправить</button>
+      <p id="rsvpStatus" class="muted small" role="status"></p>
+    </form>
+  </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОЖЕЛАНИЯ -->
+<section class="section section--final" id="final">
+  <div class="container">
+    <h2>До встречи 💚</h2>
+    <p>
+      Если Вы задумывались о покупке цветов, пожалуйста, не дарите их. 
+      Мы будем рады вашим поздравлениям в конвертах.
+    </p>
+    <p class="sign">
+      С любовью,<br>
+      <strong>Максим и Яна</strong>
+    </p>
+  </div>
+</section>
+
+  
+</main>
+
+<footer class="footer">
+  <div class="container small muted">
+    © Максим & Яна • 24.04.2026
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
