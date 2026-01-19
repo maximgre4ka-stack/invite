@@ -551,6 +551,12 @@ main{
 .decor-palms .p4{ top: 52%; right:-130px; transform: rotate(14deg) scale(0.92); }
 .decor-palms .p5{ top: 70%; left: -100px; transform: rotate(-24deg) scale(1.00); }
 .decor-palms .p6{ top: 84%; right:-90px; transform: rotate(10deg) scale(1.10); }
+.decor-palms .p7{ top: 12%; left: 6%; transform: rotate(18deg) scale(0.75); }
+.decor-palms .p8{ top: 26%; right: 8%; transform: rotate(-14deg) scale(0.82); }
+.decor-palms .p9{ top: 44%; left: 12%; transform: rotate(26deg) scale(0.88); }
+.decor-palms .p10{ top: 60%; right: 14%; transform: rotate(-20deg) scale(0.78); }
+.decor-palms .p11{ top: 76%; left: 18%; transform: rotate(12deg) scale(0.85); }
+.decor-palms .p12{ top: 90%; right: 6%; transform: rotate(-8deg) scale(0.9); }
 
 /* Мобильная оптимизация: меньше, чуть спокойнее, но всё равно >2 */
 @media (max-width: 820px){
@@ -564,6 +570,10 @@ main{
   .decor-palms .p2{ top: 32%; right:-90px;  transform: rotate(18deg)  scale(0.98); }
   .decor-palms .p3{ top: 55%; left: -90px;  transform: rotate(-8deg)  scale(1.05); }
   .decor-palms .p4{ top: 78%; right:-80px;  transform: rotate(12deg)  scale(1.02); }
+  .decor-palms .p7{ top: 16%; left: 4%; transform: rotate(14deg) scale(0.72); }
+  .decor-palms .p8{ top: 40%; right: 6%; transform: rotate(-12deg) scale(0.75); }
+  .decor-palms .p9{ top: 64%; left: 10%; transform: rotate(20deg) scale(0.8); }
+  .decor-palms .p10{ top: 86%; right: 10%; transform: rotate(-16deg) scale(0.76); }
 
   /* оставляем 4 ветви на мобиле — всё равно >2 */
   /* .decor-palms .p5,
