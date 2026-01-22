@@ -364,6 +364,16 @@ if (rsvpForm) {
     if (rsvpStatus) rsvpStatus.textContent = "Отправляем…";
 
     const fd = new FormData(rsvpForm);
+    const submittedAtMsk = new Date(now).toLocaleString("ru-RU", {
+      timeZone: "Europe/Moscow",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
 const alcohol = fd.getAll('alcohol').map(v => v.toString());
 
 if (alcoholOtherCheck?.checked && alcoholOtherInput?.value.trim()) {
@@ -373,7 +383,8 @@ if (alcoholOtherCheck?.checked && alcoholOtherInput?.value.trim()) {
 const payload = {
   name: (fd.get('name') || '').toString().trim(),
   attendance: (fd.get('attendance') || '').toString(),
-  alcohol
+  alcohol,
+  submittedAtMsk
 };
 
 
