@@ -47,9 +47,9 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
   const calendarCard=document.getElementById("calendarCard");
   if(!calendarCard) return;
   
-  // Дата события: 24 апреля 2026, 14:00
-  const eventDate=new Date(2026,3,24,14,0,0);
-  const eventEndDate=new Date(2026,3,24,18,0,0);
+  // Дата события: 24 апреля 2026, весь день
+  const eventDate=new Date(2026,3,24);
+  const eventEndDate=new Date(2026,3,25);
   
   // Определение устройства Apple
   function isAppleDevice(){
@@ -57,22 +57,19 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
     return /iPad|iPhone|iPod|Macintosh/.test(userAgent)&&!window.MSStream;
   }
   
-  // Форматирование даты для .ics файла (формат: YYYYMMDDTHHmmssZ)
+  // Форматирование даты для .ics файла (формат: YYYYMMDD)
   function formatDateForICS(date){
-    const year=date.getUTCFullYear();
-    const month=String(date.getUTCMonth()+1).padStart(2,"0");
-    const day=String(date.getUTCDate()).padStart(2,"0");
-    const hours=String(date.getUTCHours()).padStart(2,"0");
-    const minutes=String(date.getUTCMinutes()).padStart(2,"0");
-    const seconds=String(date.getUTCSeconds()).padStart(2,"0");
-    return `${year}${month}${day}T${hours}${minutes}${seconds}Z`;
+    const year=date.getFullYear();
+    const month=String(date.getMonth()+1).padStart(2,"0");
+    const day=String(date.getDate()).padStart(2,"0");
+    return `${year}${month}${day}`;
   }
   
   // Создание .ics файла
   function createICSFile(){
     const startDateICS=formatDateForICS(eventDate);
     const endDateICS=formatDateForICS(eventEndDate);
-    const nowICS=formatDateForICS(new Date());
+    const nowICS=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
     
     const title="Свадьба Максима и Яны";
     const description="Свадьба Максима и Яны\\n\\nг. Сочи, ул. Ленина д. 6А\\nЗАГС Адлерского района";
@@ -91,8 +88,8 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
       "BEGIN:VEVENT",
       `UID:${uid}`,
       `DTSTAMP:${nowICS}`,
-      `DTSTART:${startDateICS}`,
-      `DTEND:${endDateICS}`,
+      `DTSTART;VALUE=DATE:${startDateICS}`,
+      `DTEND;VALUE=DATE:${endDateICS}`,
       `SUMMARY:${title}`,
       `DESCRIPTION:${description}`,
       `LOCATION:${location}`,
