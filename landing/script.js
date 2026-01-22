@@ -1,17 +1,21 @@
-// Countdown
-const weddingDate = new Date(2026, 3, 24, 14, 0, 0);
+// Countdown (Moscow time)
+const MSK_OFFSET_MINUTES = 180;
+function moscowTimestamp(year, monthIndex, day, hours = 0, minutes = 0, seconds = 0) {
+  return Date.UTC(year, monthIndex, day, hours - MSK_OFFSET_MINUTES / 60, minutes, seconds);
+}
+
+const weddingTimestamp = moscowTimestamp(2026, 3, 24, 14, 0, 0);
 const d=document.getElementById("d"),
       h=document.getElementById("h"),
       m=document.getElementById("m"),
       s=document.getElementById("s");
 const heroProgressBar=document.getElementById("heroProgressBar");
 const heroProgress=document.querySelector(".hero-progress");
-const progressStart=new Date(weddingDate);
-progressStart.setFullYear(weddingDate.getFullYear()-1);
+const progressStartTs = moscowTimestamp(2025, 3, 24, 14, 0, 0);
 
 function tick(){
-  const now=new Date();
-  let diff=weddingDate-now;
+  const now=Date.now();
+  let diff=weddingTimestamp-now;
   if(diff<0) diff=0;
 
   const sec=Math.floor(diff/1000);
@@ -21,8 +25,8 @@ function tick(){
   s.textContent=String(sec%60).padStart(2,"0");
 
   if(heroProgressBar && heroProgress){
-    const total=weddingDate-progressStart;
-    const elapsed=now-progressStart;
+    const total=weddingTimestamp-progressStartTs;
+    const elapsed=now-progressStartTs;
     const ratio=Math.max(0,Math.min(1,elapsed/total));
     const percent=Math.round(ratio*100);
     heroProgressBar.style.width=`${percent}%`;
@@ -292,8 +296,8 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
   update();
 })();
 
-// RSVP Registration Deadline Timer
-const registrationDeadline = new Date(2026, 2, 15, 23, 59, 59); // 15.03.2026 23:59:59
+// RSVP Registration Deadline Timer (Moscow time)
+const registrationDeadlineTs = moscowTimestamp(2026, 2, 15, 23, 59, 59); // 15.03.2026 23:59:59
 const rsvpD = document.getElementById("rsvp-d");
 const rsvpH = document.getElementById("rsvp-h");
 const rsvpM = document.getElementById("rsvp-m");
@@ -302,8 +306,8 @@ const rsvpSubmitBtn = document.getElementById("rsvpSubmitBtn");
 const rsvpForm = document.getElementById('rsvpForm');
 
 function updateRSVPTimer() {
-  const now = new Date();
-  let diff = registrationDeadline - now;
+  const now = Date.now();
+  let diff = registrationDeadlineTs - now;
   
   if (diff <= 0) {
     // Время истекло - отключаем форму
@@ -351,8 +355,8 @@ if (rsvpForm) {
     e.preventDefault();
     
     // Проверяем, не истекло ли время регистрации
-    const now = new Date();
-    if (now >= registrationDeadline) {
+    const now = Date.now();
+    if (now >= registrationDeadlineTs) {
       if (rsvpStatus) rsvpStatus.textContent = "Регистрация закрыта. Время истекло.";
       return;
     }
