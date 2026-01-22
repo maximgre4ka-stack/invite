@@ -293,7 +293,7 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
 })();
 
 // RSVP Registration Deadline Timer
-const registrationDeadline = new Date(2026, 2, 1, 23, 59, 59); // 01.03.2026 23:59:59
+const registrationDeadline = new Date(2026, 2, 15, 23, 59, 59); // 15.03.2026 23:59:59
 const rsvpD = document.getElementById("rsvp-d");
 const rsvpH = document.getElementById("rsvp-h");
 const rsvpM = document.getElementById("rsvp-m");
