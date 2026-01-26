@@ -185,15 +185,38 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
 (()=>{
   const sections=document.querySelectorAll(".section");
   if(sections.length===0) return;
+  const body=document.body;
+
+  function updateKeyboardState(){
+    if(window.innerWidth>820){
+      body.classList.remove("keyboard-open");
+      return false;
+    }
+    if(!window.visualViewport){
+      body.classList.remove("keyboard-open");
+      return false;
+    }
+    const diff=window.innerHeight-window.visualViewport.height;
+    const isOpen=diff>120;
+    body.classList.toggle("keyboard-open",isOpen);
+    return isOpen;
+  }
   
   function updateSectionBlur(){
     const windowHeight=window.innerHeight;
     const viewportCenter=windowHeight*0.5;
+    const keyboardOpen=updateKeyboardState();
+    const isMobile=window.innerWidth<=820;
     
     sections.forEach(section=>{
       // Применяем размытие только к видимым секциям
       if(!section.classList.contains("is-visible")){
         // Для невидимых секций сбрасываем размытие
+        section.style.setProperty("--blur-amount","0px");
+        return;
+      }
+
+      if(isMobile && keyboardOpen){
         section.style.setProperty("--blur-amount","0px");
         return;
       }
@@ -203,7 +226,6 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
       const distanceFromCenter=Math.abs(sectionCenter-viewportCenter);
       
       // Максимальное размытие для секций на краях экрана
-      const isMobile=window.innerWidth<=820;
       const maxBlur=isMobile?2:6; // меньше размытие на мобильных, чтобы не перекрывать контент
       const blurStartDistance=windowHeight*0.4; // начинаем размывать с этого расстояния
       const blurMaxDistance=windowHeight*0.8; // максимальное размытие на этом расстоянии
@@ -223,6 +245,10 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
   
   window.addEventListener("scroll",updateSectionBlur,{passive:true});
   window.addEventListener("resize",updateSectionBlur);
+  if(window.visualViewport){
+    window.visualViewport.addEventListener("resize",updateSectionBlur);
+    window.visualViewport.addEventListener("scroll",updateSectionBlur);
+  }
   updateSectionBlur();
 })();
 

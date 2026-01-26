@@ -489,6 +489,10 @@ p{line-height:1.65;}
     margin-bottom:10px;
   }
 
+  .keyboard-open .section{
+    filter:none;
+  }
+
   /* Если совсем маленькая высота экрана (горизонтально) — уменьшаем фото */
   @media (max-height: 520px){
     .hero__photo{
