@@ -470,6 +470,10 @@ p{line-height:1.65;}
     grid-template-columns:1fr;
     gap:14px;
   }
+
+  .section{
+    filter:blur(3px);
+  }
   
   .card{
     min-height:120px;

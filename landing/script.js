@@ -51,9 +51,9 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
   const calendarCard=document.getElementById("calendarCard");
   if(!calendarCard) return;
   
-  // Дата события: 24 апреля 2026, весь день
-  const eventDate=new Date(2026,3,24);
-  const eventEndDate=new Date(2026,3,25);
+  // Дата события: 24 апреля 2026, 16:00–22:00
+  const eventStartDate=new Date(2026,3,24,16,0,0);
+  const eventEndDate=new Date(2026,3,24,22,0,0);
   
   // Определение устройства Apple
   function isAppleDevice(){
@@ -61,18 +61,21 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
     return /iPad|iPhone|iPod|Macintosh/.test(userAgent)&&!window.MSStream;
   }
   
-  // Форматирование даты для .ics файла (формат: YYYYMMDD)
-  function formatDateForICS(date){
+  // Форматирование даты и времени для .ics файла (формат: YYYYMMDDTHHMMSS)
+  function formatDateTimeForICS(date){
     const year=date.getFullYear();
     const month=String(date.getMonth()+1).padStart(2,"0");
     const day=String(date.getDate()).padStart(2,"0");
-    return `${year}${month}${day}`;
+    const hours=String(date.getHours()).padStart(2,"0");
+    const minutes=String(date.getMinutes()).padStart(2,"0");
+    const seconds=String(date.getSeconds()).padStart(2,"0");
+    return `${year}${month}${day}T${hours}${minutes}${seconds}`;
   }
   
   // Создание .ics файла
   function createICSFile(){
-    const startDateICS=formatDateForICS(eventDate);
-    const endDateICS=formatDateForICS(eventEndDate);
+    const startDateICS=formatDateTimeForICS(eventStartDate);
+    const endDateICS=formatDateTimeForICS(eventEndDate);
     const nowICS=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
     
     const title="Свадьба Максима и Яны";
@@ -92,8 +95,8 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
       "BEGIN:VEVENT",
       `UID:${uid}`,
       `DTSTAMP:${nowICS}`,
-      `DTSTART;VALUE=DATE:${startDateICS}`,
-      `DTEND;VALUE=DATE:${endDateICS}`,
+      `DTSTART:${startDateICS}`,
+      `DTEND:${endDateICS}`,
       `SUMMARY:${title}`,
       `DESCRIPTION:${description}`,
       `LOCATION:${location}`,
@@ -201,7 +204,7 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
       
       // Максимальное размытие для секций на краях экрана
       const isMobile=window.innerWidth<=820;
-      const maxBlur=isMobile?4:6; // меньше размытие на мобильных для производительности
+      const maxBlur=isMobile?2:6; // меньше размытие на мобильных, чтобы не перекрывать контент
       const blurStartDistance=windowHeight*0.4; // начинаем размывать с этого расстояния
       const blurMaxDistance=windowHeight*0.8; // максимальное размытие на этом расстоянии
       
