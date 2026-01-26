@@ -79,8 +79,8 @@ document.querySelectorAll(".section").forEach(s=>io.observe(s));
     const nowICS=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d{3}Z$/,"Z");
     
     const title="Свадьба Максима и Яны";
-    const description="Свадьба Максима и Яны\\n\\nг. Сочи, ул. Ленина д. 6А\\nЗАГС Адлерского района";
-    const location="г. Сочи, ул. Ленина д. 6А, ЗАГС Адлерского района";
+    const description="Свадьба Максима и Яны\\n\\nг.Сочи ул.Прозрачная 35к1\\nРесторан \"Сад\"";
+    const location="г.Сочи ул.Прозрачная 35к1, Ресторан \"Сад\"";
     
     // Генерация уникального ID для события
     const uid=`wedding-maxim-yana-2026-${Date.now()}@sublimenotes`;
