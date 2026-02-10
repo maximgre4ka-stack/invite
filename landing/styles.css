@@ -50,7 +50,6 @@ p{line-height:1.65;}
   z-index:0;
   background:url("assets/img/hero.jpg") right bottom/cover no-repeat;
   transform:scale(1.03);
-  will-change:transform;
 }
 
 .hero__overlay{
@@ -80,7 +79,6 @@ p{line-height:1.65;}
   padding:32px;
   box-shadow:var(--shadow);
   border:1px solid rgba(143,168,150,.3);
-  will-change:transform,opacity;
   transition:transform 0.6s ease-out, opacity 0.6s ease-out;
   color:var(--text);
   z-index:2;
@@ -195,7 +193,6 @@ p{line-height:1.65;}
   transform:translateY(18px) scale(.97);
   filter:blur(6px);
   transition:opacity 0.8s ease, transform 0.8s ease, filter 0.3s ease;
-  will-change:filter,opacity;
   --blur-amount:0px;
 }
 .section.is-visible{
@@ -241,6 +238,13 @@ p{line-height:1.65;}
   font-size:18px;
   opacity:.75;
 }
+.card-hint{
+  display:block;
+  margin-top:auto;
+  font-size:13px;
+  opacity:.6;
+  font-style:italic;
+}
 .card--expandable .card__map{
   margin-top:0;
   max-height:0;
@@ -282,35 +286,7 @@ p{line-height:1.65;}
   font-weight:500;
 }
 
-.calendar-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-top:12px;
-  padding:10px 16px;
-  background:rgba(143,168,150,.2);
-  border:1px solid rgba(143,168,150,.3);
-  border-radius:12px;
-  color:var(--text);
-  text-decoration:none;
-  font-size:14px;
-  transition:all 0.3s ease;
-  cursor:pointer;
-}
-.calendar-btn:hover{
-  background:rgba(143,168,150,.3);
-  border-color:rgba(143,168,150,.5);
-  transform:translateY(-1px);
-}
-.calendar-btn span{
-  font-size:16px;
-}
 
-.form-embed{
-  margin-top:14px;
-  border:1px dashed rgba(143,168,150,.4);
-  border-radius:var(--radius);
-}
 
 /* ================= EVENT PLAN ================= */
 .event-plan-grid{
@@ -457,14 +433,6 @@ p{line-height:1.65;}
     grid-template-columns: repeat(2, 1fr);
   }
   
-  /* Кнопка календаря на мобильных */
-  .calendar-btn{
-    width:100%;
-    justify-content:center;
-    padding:12px 16px;
-    font-size:15px;
-  }
-  
   /* Блоки "Когда" и "Где" в одну колонку на мобильных */
   .cards{
     grid-template-columns:1fr;
@@ -589,33 +557,6 @@ main{
     display:none;
   } */
 }
-/* ================= RSVP IFRAME ================= */
-
-.form-embed{
-  margin-top: 14px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid rgba(143,168,150,.20);
-  background: rgba(250,251,248,.6);
-  box-shadow: 0 10px 26px rgba(0,0,0,.08);
-}
-
-/* iframe занимает всю ширину, без горизонтального скролла */
-.rsvp-iframe{
-  width: 1px;          /* трюк для корректной 100% ширины во всех браузерах */
-  min-width: 100%;
-  height: 1110px;      /* как у тебя в оригинале */
-  border: 0;
-  display: block;
-}
-
-/* на мобиле часто нужно чуть больше высоты */
-@media (max-width: 820px){
-  .rsvp-iframe{
-    height: 1220px;
-  }
-}
-
 /* ================= RSVP TIMER ================= */
 .rsvp-timer{
   margin-top: 20px;

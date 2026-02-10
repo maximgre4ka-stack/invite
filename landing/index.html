@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Максим & Яна — 24.04.2026</title>
 
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="assets/img/hero.jpg" />
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -87,17 +92,19 @@
       <p><strong>24 апреля 2026</strong></p>
       <p><strong>16:00</strong></p>
       <span class="card-icon" aria-hidden="true">📅</span>
+      <span class="card-hint">Добавить в календарь</span>
     </div>
     <div class="card card--clickable card--expandable" id="locationCard" role="button" tabindex="0" aria-expanded="false" aria-controls="locationMap">
       <h3>Где</h3>
       <p><strong>г.Сочи ул.Прозрачная 35к1</strong></p>
       <p><strong>Ресторан "Сад"</strong></p>
       <span class="card-icon" aria-hidden="true">🗺️</span>
+      <span class="card-hint">Посмотреть на карте</span>
       <div class="card__map" id="locationMap" aria-hidden="true">
         <div style="position:relative;overflow:hidden;">
           <a href="https://yandex.ru/maps/org/sad/171732165352/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Sad</a>
           <a href="https://yandex.ru/maps/239/sochi/category/restaurant/184106394/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Restaurant in Sochi</a>
-          <iframe src="https://yandex.ru/map-widget/v1/org/sad/171732165352/?ll=39.685269%2C43.645387&z=17" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+          <iframe width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
         </div>
       </div>
     </div>
@@ -114,10 +121,8 @@
         <span class="event-time">16:00</span>
       </div>
       <div class="event-plan-item">
-        <h3>TBA</h3>
-      </div>
-      <div class="event-plan-item">
-        <h3>TBA</h3>
+        <h3>Welcome</h3>
+        <span class="event-time">16:00 – 17:00</span>
       </div>
     </div>
   </div>
@@ -250,6 +255,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
